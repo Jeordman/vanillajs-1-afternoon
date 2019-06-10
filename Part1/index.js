@@ -1,12 +1,17 @@
 console.log("Hello World");
 let playerSpan;
 
-
 let board = [];
+const reset = document.getElementById("reset");
+// function reset(){
+//   for (let i = 0; i < 9; i++){
+//     board[i] = undefined
+// }
 
 function play(clickedId) {
   const clickedElement = document.getElementById(clickedId);
   const playerSpan = document.getElementById("player");
+  
 
   if (playerSpan.innerText === "X") {
     playerSpan.innerText = "O";
@@ -30,15 +35,13 @@ function play(clickedId) {
   let bottomMiddle = board[7];
   let bottomRight = board[8];
 
-
-
   if (
     topRight !== undefined &&
     topRight === topMiddle &&
     topRight === topLeft
   ) {
     alert(`Player ${topRight} Won!`);
-    
+
     return;
   }
 
@@ -101,12 +104,12 @@ function play(clickedId) {
   }
 
   let boardFull = true;
-    for (let i = 0; i < 9; i++) {
-      if (board[i] === undefined) {
-         (boardFull = false);
-      }
+  for (let i = 0; i < 9; i++) {
+    if (board[i] === undefined) {
+      boardFull = false;
     }
-    if (boardFull === true){
-        alert(`Cat`)
-    }
+  }
+  if (boardFull === true) {
+    alert(`Cat`);
+  }
 }
